@@ -7,12 +7,12 @@ import tensorflow as tf
 from PIL import Image
 
 sys.path.append("..")
-from FlaskObjectDetection.utils import label_map_util
 
+from FlaskObjectDetection.utils import label_map_util
 from FlaskObjectDetection.utils import visualization_utils as vis_util
 
 # from utils import visualization_utils as vis_util
-#MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
+
 PATH_TO_CKPT = 'frozen_inference_graph.pb'
 PATH_TO_LABELS = os.path.join('data', 'mscoco_label_map.pbtxt')
 NUM_CLASSES = 90
