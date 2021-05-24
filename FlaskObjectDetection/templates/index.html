@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block content %}
+
+<br>
+
+<img src='/static/logo.svg' style="margin-left: 600px; margin-bottom: -350px;" width="600px" height="250px">
+
+<h3> Ananda Datta Sai Phanindra Tangirala</h3><br>
+</p>
+<h1>Upload an Image</h1>
+<h6>(Note: Accepts Only .jpg and .jpeg image files)</h6>
+<br>
+                                    
+<div>
+
+    <form action="upload" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose file
+        </label><br>
+        <input type="file" name="file" id="imageUpload" accept=".jpg, .jpeg">
+            <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+    </div>
+        <input class="btn btn-primary-lg" type="submit" value="Detect">
+    </form>
+
+
+    <div class="loader" style="display:none;"></div>
+
+    
+
+
+</div>
+
+<script>
+    function init() {
+        var inputFile = document.getElementById('imageUpload');
+        inputFile.addEventListener('change', mostrarImagen, false);
+    }
+    function mostrarImagen(event) {
+        var file = event.target.files[0];
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            var img = document.getElementById('imagen');
+            img.src = event.target.result;
+            img.width = 500;
+            img.height = 500;
+        }
+        reader.readAsDataURL(file);
+    }
+    window.addEventListener('load', init, false);
+</script>
+
+
+
+
+</div>
+
+{% endblock %}
